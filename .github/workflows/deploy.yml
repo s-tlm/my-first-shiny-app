@@ -26,11 +26,11 @@ jobs:
           Rscript -e "rsconnect::setAccountInfo(name='stlm', token='${TOKEN}', secret='${SECRET}')"
 
       - name: Activate renv environment
-        shell: Rscript -e {0}
+        shell: Rscript {0}
         run: |
           options(renv.config.repos.override=c(RSPM="https://packagemanager.posit.co/cran/__linux__/jammy/latest"))
           renv::restore()
 
       - name: Deploy to Posit Connect
-        shell: Rscript -e {0}
+        shell: Rscript {0}
         run: rsconnect::deployApp('./src', appName='my-first-shiny-app', forceUpdate=TRUE)
