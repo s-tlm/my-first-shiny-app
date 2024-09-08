@@ -23,7 +23,7 @@ jobs:
           SECRET: ${{ secrets.CONNECT_SECRET }}
         run: |
           Rscript -e "install.packages(c('renv', 'rsconnect'))"
-          Rscript -e "rsconnect::setAccountInfo(name='stlm', token='${CONNECT_TOKEN}', secret='${CONNECT_SECRET}')"
+          Rscript -e "rsconnect::setAccountInfo(name='stlm', token='${TOKEN}', secret='${SECRET}')"
 
       - name: Activate renv environment
         shell: Rscript -e {0}
