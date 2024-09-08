@@ -62,3 +62,11 @@ If the application is re-deployed from the same directory, `rsconnect` checks fo
 #### 3. Bundle Deployed on Posit Connect
 
 Once the bundle is deployed, Posit Connect parses the manifest and restore all the package dependencies from the `packrat` lock file.
+
+## Resources
+
+- [Programmatic Deployment with `rsconnect`](https://docs.posit.co/connect/admin/appendix/rsconnect/)
+- [Posit Connect Deployment Guide](https://docs.posit.co/connect/admin/appendix/deployment-guide/#:~:text=To%20programmatically%20publish%20content%20to,server%20use%20addConnectServer%20and%20connectUser%20.)
+- [`rsconnect::addServer`](https://rstudio.github.io/rsconnect/reference/addServer.html)
+- [`rsconnect::connectApiUser`](https://rstudio.github.io/rsconnect/reference/connectApiUser.html)
+
