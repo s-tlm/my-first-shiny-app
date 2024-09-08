@@ -18,17 +18,19 @@ jobs:
           r-version: renv
 
       - name: Setup dependencies
-        shell: Rscript {0}
+        env:
+          TOKEN: ${{ secrets.CONNECT_TOKEN }}
+          SECRET: ${{ secrets.CONNECT_SECRET }}
         run: |
-          install.packages(c('renv', 'rsconnect'))
-          rsconnect::setAccountInfo(name='stlm', token='35C637AD0E674D3A1C2208F00F7B8406', secret='4WhDhLinQ9QoQwflE4opF3nrUEXV4DAASTOIibGs')
+          Rscript -e "install.packages(c('renv', 'rsconnect'))"
+          Rscript -e "rsconnect::setAccountInfo(name='stlm', token='${CONNECT_TOKEN}', secret='${CONNECT_SECRET}')"
 
       - name: Activate renv environment
-        shell: Rscript {0}
+        shell: Rscript -e {0}
         run: |
           options(renv.config.repos.override=c(RSPM="https://packagemanager.posit.co/cran/__linux__/jammy/latest"))
           renv::restore()
 
       - name: Deploy to Posit Connect
-        shell: Rscript {0}
+        shell: Rscript -e {0}
         run: rsconnect::deployApp('./src', appName='my-first-shiny-app', forceUpdate=TRUE)
