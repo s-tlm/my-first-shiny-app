@@ -1,5 +1,7 @@
 # my-first-shiny-app
 
+Source code from: [Posit](https://github.com/posit-hosted/examples-shiny-r).
+
 ## Programmatic Deployment
 
 The following uses the `rsconnect` package.
