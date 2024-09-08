@@ -25,7 +25,8 @@ jobs:
 
       - name: Activate renv environment
         shell: Rscript {0}
-        run: renv::activate()
+        run: |
+          renv::restore()
 
       - name: Deploy to Posit Connect
         shell: Rscript {0}
