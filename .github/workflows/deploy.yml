@@ -16,4 +16,4 @@ jobs:
         with:
           r-version: renv
       - name: Setup dependencies
-        run: Rscript -e install.packages(c('renv', 'rsconnect'))
+        run: Rscript -e "install.packages(c('renv', 'rsconnect'))"
